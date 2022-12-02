@@ -1,4 +1,4 @@
-import sys; sys.stdin = open("input/day1", "r")
+import sys; sys.stdin = open("../input/day1", "r")
 
 ans_1 = 0
 calories = 0
