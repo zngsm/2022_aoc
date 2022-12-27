@@ -47,5 +47,29 @@ def search():
                 Q.append(((ty, tx), d+1))
 
 
+def search_2():
+    Q = deque()
+    for y in range(N):
+        for x in range(M):
+            if arr[y][x] == "E":
+                Q.append(((y, x), 0))
+
+    visit = set()
+    while Q:
+        (sy, sx), d = Q.popleft()
+        if (sy, sx) in visit:
+            continue
+        visit.add((sy, sx))
+        if ascii_v[sy][sx] == 1:
+            return d
+        for i in range(4):
+            ty = sy + dy[i]
+            tx = sx + dx[i]
+            if 0 <= ty < N and 0 <= tx < M and ascii_v[ty][tx] >= ascii_v[sy][sx] -1:
+                Q.append(((ty, tx), d+1))
+
+
 part_1 = search()
 print(part_1)
+part_2 = search_2()
+print(part_2)
